@@ -25,3 +25,4 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 
 ##チームメンバー
 - 20122160 Nguyễn Bảo Ngọc
+- 20122142 Lưu Trung Nghĩa
