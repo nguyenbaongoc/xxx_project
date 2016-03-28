@@ -6,7 +6,7 @@ class CreateImages < ActiveRecord::Migration
       t.string :file
       t.datetime :created_at
       t.string :address
-      t.string :comment
+      t.text :comment
 
       t.timestamps null: false
     end
