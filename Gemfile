@@ -25,7 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #gem devise
 gem 'devise'
-
+#carrierwave
+gem 'carrierwave'
 #bootstrap gem
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
