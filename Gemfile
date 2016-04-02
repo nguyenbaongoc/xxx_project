@@ -30,8 +30,9 @@ gem 'carrierwave'
 #bootstrap gem
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
-gem 'simple_form'
 
+#jquery
+gem 'jquery-ui-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
