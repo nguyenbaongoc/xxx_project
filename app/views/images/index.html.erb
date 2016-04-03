@@ -18,20 +18,16 @@
   <tbody>
     <% @images.each do |image| %>
       <tr>
-        <td><%= image.user.email %></td>
+        <td><%= image.user.name %></td>
         <td><%= image.title %></td>
         <td><%= image_tag image.file %></td>
         <td><%= image.created_at %></td>
         <td><%= image.address %></td>
         <td><%= image.comment %></td>
         <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Image', new_image_path %>

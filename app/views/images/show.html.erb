@@ -5,7 +5,7 @@
 </p>
 <p>
   <strong>User:</strong>
-  <%= @image.user.email %>
+  <%= @image.user.name %>
 </p>
 
 <p>
@@ -30,6 +30,10 @@
   <strong>Created at:</strong>
   <%= @image.created_at %>
 </p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_image_path(@image) %> |
+  <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', images_path %>
+<% else %>
+  <%= link_to 'Back', images_path %>
+<% end %>
