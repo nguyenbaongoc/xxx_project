@@ -28,3 +28,4 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 - 20122594 Nguyễn Thị Thu Trang
 - 20121927 Nguyen Khac Khoi
 - 20122718 Vũ Mạnh Tuấn
+- 20122142 Luu Trung Nghia
