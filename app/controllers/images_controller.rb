@@ -1,7 +1,6 @@
 class ImagesController < ApplicationController
   before_action :set_image, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show]
-
+  autocomplete :image, :title
   # GET /images
   # GET /images.json
   def index
