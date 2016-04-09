@@ -1,4 +1,8 @@
 <%= form_tag(images_path, :method => 'get') do %> 
-  	<%= text_field_tag :search, params[:search], placeholder: "Search" %>
-  	<%= submit_tag "Search", :name => nil %>
+<%= text_field_tag :search, params[:search], class: "search-query", placeholder: "Search", type: "search", data: {autocomplete: autocomplete_image_title_images_path} %>  
 <% end %>
+<script type="text/javascript" charset="utf-8">
+  $('#search').bind('railsAutocomplete.select', function(event, data){
+  $('#search-form').submit()
+  });
+</script>
