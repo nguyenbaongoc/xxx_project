@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @image_comment.user_id %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @image_comment.image_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @image_comment.comment %>
+</p>
+<% if @image_comment.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_image_comment_path(@image_comment) %> |
+  <%= link_to 'Back', images_path %>
+<% end %>
