@@ -1,4 +1,11 @@
 <p id="notice"><%= notice %></p>
+<% if @image.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_image_path(@image) %> |
+  <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
+  <%= link_to 'Back', images_path %>
+<% else %>
+  <%= link_to 'Back', images_path %>
+<% end %>
 <p>
 
   <%= image_tag @image.file %>
@@ -30,10 +37,25 @@
   <strong>Created at:</strong>
   <%= @image.created_at %>
 </p>
-<% if user_signed_in? %>
-  <%= link_to 'Edit', edit_image_path(@image) %> |
-  <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
-  <%= link_to 'Back', images_path %>
-<% else %>
-  <%= link_to 'Back', images_path %>
+<h2> Comment</h2>
+<%= form_for(@image_comment) do |f| %>
+<div class="field">
+  <%= f.label :comment %><br>
+  <%= f.text_field :comment %>
+  <%= f.hidden_field :image_id, :value =>@image.id %>
+</div>
+<div class = "actions">
+  <%= f.submit %>
+</div>
 <% end %>
+<ul>
+  <% @image.image_comment.each do |image_comment| %>
+  <li> <%= image_comment.user.name %> :  <%= image_comment.comment %>
+  </li>
+    <% if image_comment.user_id == current_user.id %>
+      <td><%= link_to 'Show', image_comment %></td>
+      <td><%= link_to 'Edit', edit_image_comment_path(image_comment) %></td>
+      <td><%= link_to 'Destroy', image_comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  <% end %>
+</ul>
