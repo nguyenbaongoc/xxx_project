@@ -10,7 +10,7 @@
       <th>File</th>
       <th>Created at</th>
       <th>Address</th>
-      <th>Comment</th>
+      <th>Caption</th>
     </tr>
   </thead>
 
@@ -22,7 +22,7 @@
         <td><%= link_to image_tag(image.file, :size => "260x180", :crop => :fill), image %></td>
         <td><%= image.created_at %></td>
         <td><%= image.address %></td>
-        <td><%= image.comment %></td>
+        <td><%= image.caption %></td>
         
       </tr>
     <% end %>
