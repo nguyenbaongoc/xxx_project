@@ -66,12 +66,12 @@ class ImagesController < ApplicationController
   #upvote and downvote form user
   def upvote
     @image.upvote_from current_user
-    redirect_to images_path
+    redirect_to :back
   end
 
   def downvote
     @image.downvote_from current_user
-    redirect_to images_path
+    redirect_to :back
   end
 
   private

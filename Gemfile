@@ -30,7 +30,8 @@ gem 'carrierwave'
 #bootstrap gem
 gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
-
+#pagination 
+gem 'will_paginate'
 #jquery
 gem 'jquery-ui-rails'
 #autocomplete 

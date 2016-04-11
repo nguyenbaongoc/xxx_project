@@ -1,25 +1,80 @@
 <p id="notice"><%= notice %></p>
 <%= render 'layouts/header' %>
+<!DOCTYPE HTML>
+<!--
+	Phase Shift by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>Phase Shift by TEMPLATED</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
 
-<h1>Listing Images</h1>
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>File</th>
-      <th>Created at</th>
-      <th>Address</th>
-      <th>Caption</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.user.name %></td>
-        <td><%= image.title %></td>
-        <div class="caption" style="text-align:center;">
+		<!-- Wrapper -->
+			<div class="wrapper style1">
+
+				<!-- Header -->
+					
+
+				<!-- Banner -->
+				
+
+				<!-- Extra -->
+					<div id="extra">
+						<div class="container">
+							<% @images.each do |image| %>
+							  <% if image.id % 3 == 1 %>
+							    <div class="row no-collapse-1">
+								    <section class="4u"> 
+								    <a href= <%= image.file %> >
+									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									  <h3> <%= image.title %></h3>
+									
+									  </a>
+									
+								    </section>
+								    
+						  	<% else if image.id % 3 == 2 %>
+							    <section class="4u"> 
+									  <a href= <%= image.file %> >
+									  <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									
+									  <h3> <%= image.title %></h3>
+									  </a>
+							
+								  </section>
+						  	<% else %>
+							    <section class="4u"> 
+									  <a href= <%= image.file %> >
+									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									  <h3> <%= image.title %></h3>
+								  	</a>
+								
+								  </section>
+								  
+							  </div>
+						  	<% end %>
+						  	
+							  <% end %>
+							  <div class="caption" style="text-align:center;">
 
             <%= link_to like_image_path(image),  class: "like", method: :put do %>
               <button type="button" class="btn btn-info" aria-label="Left Align">
@@ -36,15 +91,18 @@
             <% end %>
 
       </div>
-        <td><%= link_to image_tag(image.file, :size => "260x180", :crop => :fill), image %></td>
-        <td><%= image.created_at %></td>
-        <td><%= image.address %></td>
-        <td><%= image.caption %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
- 
-</table>
+							<% end %>
+						</div>
+					</div>
 
-<br>
+				<!-- Main -->
+			
+
+	<!-- Footer -->
+		
+
+	<!-- Copyright -->
+	
+
+	</body>
+</html>
