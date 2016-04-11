@@ -10,7 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+<p>
+  <strong>Image:</strong>
+  <%= link_to image_tag(@image_comment.image.file, :size => "260x180", :crop => :fill), @image_comment.image %>
+</p>
   <div class="field">
     <%= f.label :comment %><br>
     <%= f.text_field :comment %>
