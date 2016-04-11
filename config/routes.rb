@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :images do
     get :autocomplete_image_title, :on => :collection
+    member do
+      put "like" => "images#upvote"
+      put "unlike" => "images#downvote"
+    end
   end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

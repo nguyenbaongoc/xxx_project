@@ -27,6 +27,7 @@
 	</head>
 	<body>
 
+
 		<!-- Wrapper -->
 			<div class="wrapper style1">
 
@@ -40,35 +41,56 @@
 					<div id="extra">
 						<div class="container">
 							<% @images.each do |image| %>
-							<% if image.id % 3 == 1 %>
-							<div class="row no-collapse-1">
-								<section class="4u"> 
-									<a href= <%= image.file %> >
-									<%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-									<h3> <%= image.title %></h3>
+							  <% if image.id % 3 == 1 %>
+							    <div class="row no-collapse-1">
+								    <section class="4u"> 
+								    <a href= <%= image.file %> >
+									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									  <h3> <%= image.title %></h3>
 									
-									</a>
+									  </a>
 									
-								</section>
-							<% else if image.id % 3 == 2 %>
-							<section class="4u"> 
-									<a href= <%= image.file %> >
-									<%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-									<h3> <%= image.title %></h3>
-									</a>
+								    </section>
+								    
+						  	<% else if image.id % 3 == 2 %>
+							    <section class="4u"> 
+									  <a href= <%= image.file %> >
+									  <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									
+									  <h3> <%= image.title %></h3>
+									  </a>
 							
-								</section>
-							<% else %>
-							<section class="4u"> 
-									<a href= <%= image.file %> >
-									<%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-									<h3> <%= image.title %></h3>
-									</a>
+								  </section>
+						  	<% else %>
+							    <section class="4u"> 
+									  <a href= <%= image.file %> >
+									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
+									  <h3> <%= image.title %></h3>
+								  	</a>
 								
-								</section>
-							</div>
-							<% end %>
-							<% end %>
+								  </section>
+								  
+							  </div>
+						  	<% end %>
+						  	
+							  <% end %>
+							  <div class="caption" style="text-align:center;">
+
+            <%= link_to like_image_path(image),  class: "like", method: :put do %>
+              <button type="button" class="btn btn-info" aria-label="Left Align">
+                <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+                <span class="badge"><%= image.get_upvotes.size %></span>
+              </button>
+            <% end %>
+
+            <%= link_to unlike_image_path(image), class: "like", method: :put do %>
+              <button type="button" class="btn btn-info" aria-label="Left Align"> 
+                <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+                <span class="badge"><%= image.get_downvotes.size %></span>
+              </button>  
+            <% end %>
+
+      </div>
 							<% end %>
 						</div>
 					</div>

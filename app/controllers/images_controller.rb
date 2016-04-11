@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :edit, :update, :destroy]
+  before_action :set_image, only: [:show, :edit, :update, :destroy, :upvote , :downvote]
   autocomplete :image, :title
   # GET /images
   # GET /images.json
@@ -61,6 +61,17 @@ class ImagesController < ApplicationController
       format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  #upvote and downvote form user
+  def upvote
+    @image.upvote_from current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @image.downvote_from current_user
+    redirect_to :back
   end
 
   private
