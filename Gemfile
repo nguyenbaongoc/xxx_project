@@ -35,6 +35,8 @@ gem 'rails_bootstrap_navbar'
 gem 'jquery-ui-rails'
 #autocomplete 
 gem 'rails4-autocomplete'
+#vote image
+gem 'acts_as_votable'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
