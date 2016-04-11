@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p>
-
-  <%= image_tag @image.file %>
+<%= image_tag(@image.file , :size => "260x180", :crop => :fill) %>
 </p>
 <p>
   <strong>User:</strong>
