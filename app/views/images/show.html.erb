@@ -33,7 +33,7 @@
       </div>
 <p>
   <strong>User:</strong>
-  <%= link_to @image.user.name, user_path %>
+  <%= link_to @image.user.name, user_path(@image.user) %>
 </p>
 
 <p>
@@ -73,7 +73,7 @@
 <% end %>
 <ul>
   <% @image.image_comment.each do |image_comment| %>
-  <li> <%= image_comment.user.name %>:  <%= image_comment.comment %>
+  <li> <%= link_to image_comment.user.name, user_path(image_comment.user) %>:  <%= image_comment.comment %>
   </li>
   <% if user_signed_in? %>
     <% if image_comment.user_id == current_user.id %>
