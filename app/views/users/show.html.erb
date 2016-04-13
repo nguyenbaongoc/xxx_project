@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-    <h1>Xin chao <%= @user.name %></h1>
+    <h1><%= @user.name %></h1>
     <% @user.images.each do |image| %>
         <section> 
 	        <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>

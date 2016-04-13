@@ -30,7 +30,7 @@ class ImageCommentsController < ApplicationController
     respond_to do |format|
       if @image_comment.save
         _url = "/images/" + @image_comment.image_id.to_s
-        format.html { redirect_to @image_comment, notice: 'Image comment was successfully created.' }
+        format.html { redirect_to @image_comment.image, notice: 'Image comment was successfully created.' }
         format.json { render :show, status: :created, location: @image_comment }
       else
         format.html { render :new }

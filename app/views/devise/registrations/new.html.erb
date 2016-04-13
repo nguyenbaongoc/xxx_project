@@ -3,6 +3,10 @@
   <%= devise_error_messages! %>
   <div class="form-input">
     <h2 class = "form-input-heading">Sign up</h2>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, class: 'col-sm-8 control-label', placeholder: "Enter your Name" %><br />
+  </div>
+  <div class="form-input">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true , type:"email", class: 'col-sm-8 control-label', placeholder: "Enter your Email"%><br />
   </div>
