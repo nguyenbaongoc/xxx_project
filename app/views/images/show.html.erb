@@ -1,20 +1,38 @@
 <p id="notice"><%= notice %></p>
+
+<div class="col-md-8">
+<p>
+
+ <%= link_to image_tag(@image.file, :size => "600x400", :crop => :fill), @image %>
+</p>
 <% if user_signed_in? %>
   <% if @image.user_id == current_user.id %>
-    <%= link_to image_tag("document_edit.png", :size => "30x30", :crop => :fill), edit_image_path(@image) %> |
-    <%= link_to image_tag("file_delete.png", :size => "30x30", :crop => :fill), @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
-    <%= link_to image_tag("direction_left.png", :size => "30x30", :crop => :fill), images_path %>
+    <%= link_to 'Edit', edit_image_path(@image) %> |
+    <%= link_to 'Delete', @image, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', images_path %>
   <% else %>
     <%= link_to 'Back', images_path %>
   <% end %>
 <% else %>
  <%= link_to 'Back', images_path %>
 <% end %>
-<p>
+<% if user_signed_in? %>
+  <h2> Comment</h2>
+  <%= form_for(@image_comment) do |f| %>
+    <div class="field">
+     
+      <%= f.text_field :comment %>
+      <%= f.hidden_field :image_id, :value =>@image.id %>
+    </div>
+    <div class = "actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+<% end %>
 
-  <%= image_tag @image.file %>
-</p>
-<div class="caption" style="text-align:center;">
+</div>
+<div class="col-md-4" style="background-color: white; padding-top: 10px;">
+<div class="caption">
 
             <%= link_to like_image_path(@image),  class: "like", method: :put do %>
               <button type="button" class="btn btn-info" aria-label="Left Align">
@@ -40,9 +58,6 @@
   <strong>Title:</strong>
   <%= @image.title %>
 </p>
-
-
-
 <p>
   <strong>Address:</strong>
   <%= @image.address %>
@@ -52,25 +67,13 @@
   <strong>Caption:</strong>
   <%= @image.caption %>
 </p>
-
-
 <p>
   <strong>Created at:</strong>
   <%= @image.created_at %>
 </p>
-<% if user_signed_in? %>
-  <h2> Comment</h2>
-  <%= form_for(@image_comment) do |f| %>
-    <div class="field">
-      <%= f.label :comment %><br>
-      <%= f.text_field :comment %>
-      <%= f.hidden_field :image_id, :value =>@image.id %>
-    </div>
-    <div class = "actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
-<% end %>
+<p>
+  <strong>COMMENT</strong>
+</p>
 <ul>
   <% @image.image_comment.each do |image_comment| %>
   <li> <%= link_to image_comment.user.name, user_path(image_comment.user) %>:  <%= image_comment.comment %>
@@ -84,3 +87,4 @@
   <% end %>
   <% end %>
 </ul>
+</div>
