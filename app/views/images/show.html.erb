@@ -3,7 +3,7 @@
 <div class="col-md-8">
 <p>
 
-  <%= image_tag @image.file %>
+ <%= link_to image_tag(@image.file, :size => "600x400", :crop => :fill), @image %>
 </p>
 <% if user_signed_in? %>
   <% if @image.user_id == current_user.id %>
