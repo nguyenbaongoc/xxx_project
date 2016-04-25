@@ -35,14 +35,14 @@
 <div class="caption">
 
             <%= link_to like_image_path(@image),  class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
+              <button type="button" class="btn btn-default" aria-label="Left Align">
                 <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
                 <span class="badge"><%= @image.get_upvotes.size %></span>
               </button>
             <% end %>
 
             <%= link_to unlike_image_path(@image), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align"> 
+              <button type="button" class="btn btn-default" aria-label="Left Align"> 
                 <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
                 <span class="badge"><%= @image.get_downvotes.size %></span>
               </button>  
@@ -51,27 +51,15 @@
       </div>
 <p>
   <strong>User:</strong>
-  <%= link_to @image.user.name, user_path(@image.user) %>
-</p>
-
-<p>
+  <%= link_to @image.user.name, user_path(@image.user) %><br>
   <strong>Title:</strong>
-  <%= @image.title %>
-</p>
-<p>
+  <%= @image.title %><br>
   <strong>Address:</strong>
-  <%= @image.address %>
-</p>
-
-<p>
+  <%= @image.address %><br>
   <strong>Caption:</strong>
-  <%= @image.caption %>
-</p>
-<p>
+  <%= @image.caption %><br>
   <strong>Created at:</strong>
-  <%= @image.created_at %>
-</p>
-<p>
+  <%= @image.created_at %><br>
   <strong>COMMENT</strong>
 </p>
 <ul>
