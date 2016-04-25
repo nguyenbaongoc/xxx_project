@@ -10,7 +10,7 @@
 /* Basic */
 
 	body {
-		background: #EDEEF1;
+		background: url(cbg.jpg);
 	}
 
 	body, span, input, select, textarea {
@@ -626,7 +626,11 @@
 		height: 100px;
 		width: 300px;
 		padding: 2em 2em;
-		background: #FFF;
+		background: #F19090;
 		text-align: center;
 		border-radius: 0px 0px 6px 6px;
+	}
+	.col-md-3 {
+		padding-right: 10px;
+		padding-bottom: : 20px;
 	}

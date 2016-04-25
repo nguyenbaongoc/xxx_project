@@ -40,91 +40,32 @@
 				<!-- Extra -->
 					<div id="extra">
 						<div class="container">
+							<% i = 0; %>
 							<% @images.each do |image| %>
-							  <% if image.id % 3 == 1 %>
-							    <div class="row no-collapse-1">
-								    <section class="4u"> 
+								    <div class="col-md-4" style="padding-bottom:20px;">
 								    <a href= <%= image.file %> >
 									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-									
-									  </a>
-									 <div class="box">
-									<%= link_to like_image_path(image),  class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_upvotes.size %></span>
-              </button>
-            <% end %>
+										</a>
+									  <div class="box">
+											<%= link_to like_image_path(image),  class: "like", method: :put do %>
+					              <button type="button" class="btn btn-info" aria-label="Left Align">
+					                <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+					                <span class="badge"><%= image.get_upvotes.size %></span>
+					              </button>
+            					<% end %>
 
-            <%= link_to unlike_image_path(image), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align"> 
-                <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_downvotes.size %></span>
-              </button>  
-            <% end %>
-            									  <h3> <%= image.title %></h3>
-</div>
-								    </section>
-								    
-						  	<% else if image.id % 3 == 2 %>
-							    <section class="4u"> 
-									  <a href= <%= image.file %> >
-									  <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-									
-									  </a>
-							<div class="box">
-							<%= link_to like_image_path(image),  class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_upvotes.size %></span>
-              </button>
-            <% end %>
-
-            <%= link_to unlike_image_path(image), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align"> 
-                <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_downvotes.size %></span>
-              </button>  
-            <% end %>
-            									  <h3> <%= image.title %></h3>
-</div>
-								  </section>
-						  	<% else %>
-							    <section class="4u"> 
-									  <a href= <%= image.file %> >
-									    <%= link_to image_tag(image.file, :size => "300x200", :crop => :fill), image %>
-								  	</a>
-								  	<div class="box">
-								<%= link_to like_image_path(image),  class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align">
-                <span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_upvotes.size %></span>
-              </button>
-            <% end %>
-
-            <%= link_to unlike_image_path(image), class: "like", method: :put do %>
-              <button type="button" class="btn btn-info" aria-label="Left Align"> 
-                <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
-                <span class="badge"><%= image.get_downvotes.size %></span>
-              </button>  
-            <% end %>
-            									  <h3> <%= image.title %></h3>
-</div>
-								  </section>
-								  
-							  </div>
-							  <br>
-							  <br>
-						  	<% end %>
-						  	
-							  <% end %>
-							  <div class="caption" style="text-align:center;">
-
-            
-
-      </div>
+            					<%= link_to unlike_image_path(image), class: "like", method: :put do %>
+					              <button type="button" class="btn btn-info" aria-label="Left Align"> 
+					                <span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+					                <span class="badge"><%= image.get_downvotes.size %></span>
+					              </button>  
+            					<% end %>
+            					<h3> <%= image.title %></h3>
+										</div>
+										</div>
 							<% end %>
-						</div>
+					</div>
+					</div>
 					</div>
 
 				<!-- Main -->
